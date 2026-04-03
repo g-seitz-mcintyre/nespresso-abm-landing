@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nespresso × Cheil DP1 | Precision Growth for Premium Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0d0b;
+      --bg-soft: #171310;
+      --panel: rgba(255,255,255,0.05);
+      --panel-strong: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.12);
+      --text: #f3ede4;
+      --muted: #b8ac9d;
+      --gold: #caa66a;
+      --gold-soft: #e8cf9b;
+      --espresso: #6b4a33;
+      --cream: #f5ead7;
+      --shadow: 0 24px 80px rgba(0,0,0,0.35);
+      --max: 1200px;
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(202,166,106,0.12), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(107,74,51,0.22), transparent 28%),
+        radial-gradient(circle at 70% 80%, rgba(202,166,106,0.08), transparent 32%),
+        linear-gradient(180deg, #120f0c 0%, #0d0b09 55%, #120f0d 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: radial-gradient(circle at center, black 50%, transparent 90%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--gold-soft);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      box-shadow: 0 0 16px rgba(202,166,106,0.7);
+    }
+
+    header {
+      padding: 28px 0 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(20,16,13,0.58);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(202,166,106,0.2), rgba(245,234,215,0.06));
+      border: 1px solid rgba(202,166,106,0.28);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      color: var(--gold-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(202,166,106,0.35);
+      background: linear-gradient(135deg, rgba(202,166,106,0.18), rgba(202,166,106,0.06));
+      font-weight: 700;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      padding: 56px 0 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .section-card,
+    .quote,
+    .case-card,
+    .timeline-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      border-radius: 36px;
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -25% auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(202,166,106,0.18), transparent 65%);
+      filter: blur(20px);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 0.95;
+    }
+
+    h1 {
+      margin-top: 22px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.3rem, 7vw, 6.4rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      max-width: 11ch;
+    }
+
+    .accent {
+      color: var(--gold-soft);
+      font-style: italic;
+    }
+
+    .lead {
+      margin-top: 26px;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+      color: #1a140e;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .proof {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .proof strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--gold-soft);
+      margin-bottom: 6px;
+    }
+
+    .proof span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .hero-card {
+      border-radius: 36px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -20px;
+      width: 180px;
+      height: 180px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, rgba(202,166,106,0.22), rgba(255,255,255,0));
+      transform: rotate(24deg);
+    }
+
+    .mini-label {
+      color: var(--gold-soft);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 12px;
+    }
+
+    .signal-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .signal {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(11,9,7,0.52);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .signal strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .signal p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      max-width: 10ch;
+    }
+
+    .section-head p {
+      max-width: 52ch;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .section-card {
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card h3 {
+      font-size: 1.35rem;
+      margin: 10px 0 14px;
+    }
+
+    .section-card p,
+    .section-card li {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .section-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .quote {
+      margin-top: 18px;
+      border-radius: 28px;
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .quote blockquote {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .quote p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .case-grid,
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .case-card,
+    .timeline-card,
+    .contact-card {
+      border-radius: 28px;
+      padding: 26px;
+    }
+
+    .stat-line {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 18px 0 0;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(202,166,106,0.22);
+      background: rgba(202,166,106,0.08);
+      color: var(--gold-soft);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .timeline-card ol {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+    }
+
+    .contact-card form {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .field,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(9,8,6,0.65);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 15px 16px;
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .field:focus,
+    textarea:focus {
+      border-color: rgba(202,166,106,0.6);
+      box-shadow: 0 0 0 4px rgba(202,166,106,0.12);
+    }
+
+    footer {
+      padding: 36px 0 48px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 800ms cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    .fade-up.delay-1 { animation-delay: 120ms; }
+    .fade-up.delay-2 { animation-delay: 240ms; }
+    .fade-up.delay-3 { animation-delay: 360ms; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero,
+      .quote,
+      .contact-wrap,
+      .case-grid,
+      .timeline-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 13px;
+      }
+
+      .hero-copy,
+      .hero-card,
+      .section-card,
+      .quote,
+      .case-card,
+      .timeline-card,
+      .contact-card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 16vw, 4.4rem);
+      }
+
+      .hero-proof {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell">
+      <nav class="nav fade-up">
+        <div class="brand">
+          <div class="brand-mark">N</div>
+          <div>Nespresso × Cheil DP1</div>
+        </div>
+        <div class="nav-links">
+          <a href="#opportunity">Opportunity</a>
+          <a href="#playbook">Playbook</a>
+          <a href="#proof">Proof</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="#contact">Book a working session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell" style="display: contents;">
+        <div class="hero-copy fade-up delay-1">
+          <span class="eyebrow">Account-based growth for premium commerce</span>
+          <h1>Turn <span class="accent">customer intimacy</span> into a sharper digital growth engine.</h1>
+          <p class="lead">
+            Nespresso already owns a premium relationship with its customers. The next layer is precision: better audience orchestration, smarter lifecycle journeys, tighter experimentation, and channel investments that feel as curated as the brand itself.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request an ABM workshop</a>
+            <a class="btn btn-secondary" href="#playbook">See the playbook</a>
+          </div>
+          <div class="hero-proof">
+            <div class="proof">
+              <strong>Premium-first</strong>
+              <span>Designed for high-consideration, high-expectation customer journeys.</span>
+            </div>
+            <div class="proof">
+              <strong>Signal-led</strong>
+              <span>ABM built around audience, offer, and lifecycle intent signals.</span>
+            </div>
+            <div class="proof">
+              <strong>Conversion-minded</strong>
+              <span>Every touchpoint measured against commercial and retention impact.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card fade-up delay-2">
+          <div>
+            <div class="mini-label">Why now</div>
+            <div class="signal-stack">
+              <div class="signal">
+                <strong>Premium brands can’t afford generic growth motions.</strong>
+                <p>When acquisition, CRM, media, and content feel disconnected, even strong brands leave margin and loyalty on the table.</p>
+              </div>
+              <div class="signal">
+                <strong>Owned channels should work harder.</strong>
+                <p>Lifecycle messaging, offer sequencing, and post-purchase journeys can become a real performance lever — not just a retention hygiene task.</p>
+              </div>
+              <div class="signal">
+                <strong>ABM doesn’t stop at B2B.</strong>
+                <p>For strategic retail, marketplace, hospitality, and partnership motions, ABM thinking helps prioritize where premium growth is most likely to compound.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="opportunity">
+      <div class="shell">
+        <div class="section-head fade-up">
+          <div>
+            <span class="eyebrow">The opportunity</span>
+            <h2>Where Nespresso can go from polished to ruthless.</h2>
+          </div>
+          <p>
+            The goal is not more noise. It’s a more intelligent commercial system: premium acquisition, stronger repeat behavior, cleaner audience segmentation, and experimentation that respects the brand while improving measurable outcomes.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="section-card fade-up delay-1">
+            <div class="mini-label">01 — Audience precision</div>
+            <h3>Move beyond broad premium targeting</h3>
+            <p>
+              Build sharper segments around household value, machine ownership, replenishment cadence, gifting behavior, and high-propensity moments — then tailor messaging accordingly.
+            </p>
+          </article>
+          <article class="section-card fade-up delay-2">
+            <div class="mini-label">02 — Lifecycle performance</div>
+            <h3>Make CRM and commerce behave like one system</h3>
+            <p>
+              Align campaigns, onsite journeys, and post-purchase programs so the customer experience feels seamless while revenue per customer rises quietly in the background.
+            </p>
+          </article>
+          <article class="section-card fade-up delay-3">
+            <div class="mini-label">03 — Strategic account growth</div>
+            <h3>Apply ABM where partnerships matter</h3>
+            <p>
+              For B2B gifting, hospitality, office coffee, retail activations, or priority channel partners, use ABM to focus effort on the accounts and motions most likely to convert.
+            </p>
+          </article>
+        </div>
+        <div class="quote fade-up delay-2">
+          <blockquote>
+            “Premium should feel effortless to the customer — and extremely deliberate behind the scenes.”
+          </blockquote>
+          <p>
+            That’s the operating idea. We combine performance discipline with brand sensitivity, so growth doesn’t come at the cost of the experience that made customers choose Nespresso in the first place.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="playbook">
+      <div class="shell">
+        <div class="section-head fade-up">
+          <div>
+            <span class="eyebrow">The ABM playbook</span>
+            <h2>A four-part system for premium growth.</h2>
+          </div>
+          <p>
+            Built for a brand that already has presence, trust, and customer love — but wants a more surgical go-to-market motion across acquisition, retention, and strategic accounts.
+          </p>
+        </div>
+        <div class="timeline-grid">
+          <article class="timeline-card fade-up delay-1">
+            <div class="mini-label">Phase 1</div>
+            <h3>Signal mapping</h3>
+            <ol>
+              <li>Audit current audiences, lifecycle stages, and channel performance</li>
+              <li>Identify premium-value signals and drop-off moments</li>
+              <li>Prioritize high-impact customer and partner segments</li>
+            </ol>
+          </article>
+          <article class="timeline-card fade-up delay-2">
+            <div class="mini-label">Phase 2</div>
+            <h3>Journey design</h3>
+            <ol>
+              <li>Create modular messaging by audience and buying moment</li>
+              <li>Align CRM, paid media, onsite content, and offer logic</li>
+              <li>Design premium-safe test plans with measurable hypotheses</li>
+            </ol>
+          </article>
+          <article class="timeline-card fade-up delay-2">
+            <div class="mini-label">Phase 3</div>
+            <h3>Activation</h3>
+            <ol>
+              <li>Launch high-priority lifecycle and account-specific plays</li>
+              <li>Coordinate creative, segmentation, and targeting rules</li>
+              <li>Track movement from engagement to repeat revenue</li>
+            </ol>
+          </article>
+          <article class="timeline-card fade-up delay-3">
+            <div class="mini-label">Phase 4</div>
+            <h3>Optimization</h3>
+            <ol>
+              <li>Refine journeys based on behavioral and commercial data</li>
+              <li>Scale winning plays across additional markets or segments</li>
+              <li>Build an always-on experimentation cadence</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proof">
+      <div class="shell">
+        <div class="section-head fade-up">
+          <div>
+            <span class="eyebrow">What this looks like in practice</span>
+            <h2>Not a redesign project. A revenue system.</h2>
+          </div>
+          <p>
+            The output is tangible: a prioritized opportunity map, audience strategy, activation concepts, test ideas, measurement design, and a roadmap the team can actually execute.
+          </p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card fade-up delay-1">
+            <div class="mini-label">Use case A</div>
+            <h3>Lifecycle upgrade for capsule replenishment and loyalty</h3>
+            <p>
+              Restructure replenishment timing, cross-sell logic, and premium upsell flows based on order history, machine ownership, and engagement behavior.
+            </p>
+            <div class="stat-line">
+              <span class="pill">Higher repeat purchase rate</span>
+              <span class="pill">Better basket expansion</span>
+              <span class="pill">Less channel waste</span>
+            </div>
+          </article>
+          <article class="case-card fade-up delay-2">
+            <div class="mini-label">Use case B</div>
+            <h3>ABM motion for strategic B2B and partner accounts</h3>
+            <p>
+              Target office, hospitality, gifting, and retail growth accounts with segmented propositions, coordinated outreach, and measurable account progression.
+            </p>
+            <div class="stat-line">
+              <span class="pill">Focused account prioritization</span>
+              <span class="pill">Tailored propositions</span>
+              <span class="pill">Clear pipeline visibility</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="shell">
+        <div class="section-head fade-up">
+          <div>
+            <span class="eyebrow">Next step</span>
+            <h2>If this is worth 45 minutes, it’s worth exploring.</h2>
+          </div>
+          <p>
+            We’ll walk through current growth priorities, pressure-test where ABM and lifecycle strategy can create lift, and leave you with a concrete set of hypotheses to evaluate.
+          </p>
+        </div>
+
+        <div class="contact-wrap">
+          <article class="contact-card fade-up delay-1">
+            <div class="mini-label">What we’ll cover</div>
+            <h3>Working session agenda</h3>
+            <ul>
+              <li>Current commercial priorities and constraints</li>
+              <li>Audience and lifecycle blind spots</li>
+              <li>ABM-worthy account or partner motions</li>
+              <li>Fast-win activation and test opportunities</li>
+            </ul>
+            <div class="stat-line">
+              <span class="pill">45 minutes</span>
+              <span class="pill">Strategy-first</span>
+              <span class="pill">No generic decks</span>
+            </div>
+          </article>
+
+          <article class="contact-card fade-up delay-2">
+            <div class="mini-label">Book the conversation</div>
+            <h3>Let’s map the highest-value plays.</h3>
+            <form onsubmit="event.preventDefault(); window.location.href='mailto:galileo.s@cheil.com?subject=Nespresso%20ABM%20Working%20Session&body=Hi%20Galileo%2C%0A%0AWe%E2%80%99d%20like%20to%20explore%20the%20Nespresso%20ABM%20playbook.%0A';">
+              <input class="field" type="text" placeholder="Your name" aria-label="Your name" />
+              <input class="field" type="email" placeholder="Work email" aria-label="Work email" />
+              <input class="field" type="text" placeholder="Team / function" aria-label="Team or function" />
+              <textarea placeholder="What growth challenge is most urgent right now?" aria-label="Growth challenge"></textarea>
+              <button class="btn btn-primary" type="submit">Request a session</button>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      Crafted for Nespresso ABM exploration · Cheil Germany DP1 · Premium commerce, precision growth, no fluff.
+    </div>
+  </footer>
+</body>
+</html>
